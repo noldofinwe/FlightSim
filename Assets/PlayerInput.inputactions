@@ -1,4 +1,5 @@
 {
+    "version": 1,
     "name": "PlayerInput",
     "maps": [
         {
@@ -9,9 +10,10 @@
                     "name": "ToggleHelp",
                     "type": "Button",
                     "id": "a601469b-e3aa-422a-806a-4f7dcba55332",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "Throttle",
@@ -19,7 +21,8 @@
                     "id": "0d46f8f2-2f6f-4fe2-8623-427c869c3bde",
                     "expectedControlType": "Axis",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": true
                 },
                 {
                     "name": "RollPitch",
@@ -27,7 +30,8 @@
                     "id": "7173b259-7215-456e-ba7f-dba1aaad27e1",
                     "expectedControlType": "Vector2",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": true
                 },
                 {
                     "name": "Yaw",
@@ -35,7 +39,8 @@
                     "id": "56c160cd-3545-4284-abef-8d6eb62ab74c",
                     "expectedControlType": "Axis",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": true
                 },
                 {
                     "name": "Camera",
@@ -43,31 +48,35 @@
                     "id": "cdd2542b-3da6-4431-be9c-bbf306e4dcd5",
                     "expectedControlType": "Vector2",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": true
                 },
                 {
                     "name": "ToggleFlaps",
                     "type": "Button",
                     "id": "0e572958-b17b-4a43-950d-d9a9324fbc89",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "FireMissile",
                     "type": "Button",
                     "id": "54bc0053-bbe2-45cd-80b6-dd2a4f0dee6d",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "FireCannon",
                     "type": "Button",
                     "id": "cc901d01-643f-4c28-918b-23ed83f6433c",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "ToggleAI",
@@ -75,7 +84,8 @@
                     "id": "b0d256fa-cc8c-4a22-925d-479ad7049947",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -114,8 +124,41 @@
                 },
                 {
                     "name": "",
+                    "id": "661a7141-9f7f-4d00-be48-1afeb820790b",
+                    "path": "<Linux::MadCatzSaitekProFlightX56RhinoThrottle>/Throttle",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Throttle",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a3f8a129-018e-4210-9819-31813895298c",
+                    "path": "<Linux::MadCatzSaitekProFlightX56RhinoThrottle>/Stick/x",
+                    "interactions": "",
+                    "processors": "Invert",
+                    "groups": "",
+                    "action": "Throttle",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "9114f377-1c7f-4991-a591-b668ae086658",
                     "path": "<Gamepad>/leftStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RollPitch",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f5f69567-9cd6-42aa-98fa-a33539b65754",
+                    "path": "<Linux::MadCatzSaitekProFlightX56RhinoStick>/Stick",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -169,8 +212,30 @@
                 },
                 {
                     "name": "",
+                    "id": "5cc4d50d-81f3-4ebc-a047-63073a6dd332",
+                    "path": "<Linux::MadCatzSaitekProFlightX56RhinoStick>/Hat",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Camera",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "8b4e38a0-f793-4d60-bcda-53f58cf07745",
                     "path": "<Gamepad>/dpad/down",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ToggleFlaps",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "afe602f9-cde8-4a5e-bbfa-70f0a3873b75",
+                    "path": "<Linux::MadCatzSaitekProFlightX56RhinoThrottle>/Trigger",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -202,8 +267,30 @@
                 },
                 {
                     "name": "",
+                    "id": "be2ad296-1cc6-4d7f-8120-b361e341bbd3",
+                    "path": "<Linux::MadCatzSaitekProFlightX56RhinoStick>/Thumb",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "FireMissile",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "f8cd153b-2c78-4690-b96d-88366b14cb64",
                     "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "FireCannon",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "670c477b-d109-4c65-a089-cbb846f2fbe9",
+                    "path": "<Linux::MadCatzSaitekProFlightX56RhinoStick>/Trigger",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

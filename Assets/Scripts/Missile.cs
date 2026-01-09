@@ -126,6 +126,6 @@ public class Missile : MonoBehaviour {
         TrackTarget(Time.fixedDeltaTime);
 
         //set speed to direction of travel
-        Rigidbody.velocity = Rigidbody.rotation * new Vector3(0, 0, speed);
+        Rigidbody.linearVelocity = Rigidbody.rotation * new Vector3(0, 0, speed);
     }
 }

@@ -234,7 +234,7 @@ public class AutopilotController : MonoBehaviour {
 
         internalHeading = CalculateHeading(plane2DDirection);
 
-        var velocityDir = plane.Rigidbody.velocity.normalized;
+        var velocityDir = plane.Rigidbody.linearVelocity.normalized;
 
         var currentFlightPath = 90 - Vector3.Angle(Vector3.up, velocityDir);
         UpdateValueVelocity(dt, currentFlightPath, ref hasFlightPathVelocity, ref internalFlightPath, ref flightPathVelocity);
@@ -252,7 +252,7 @@ public class AutopilotController : MonoBehaviour {
         float agl = plane.RadarAltimeter * Units.metersToFeet;
         builder.AppendLine(string.Format("AGL: {0:N0} m", agl));
 
-        float climbRate = plane.Rigidbody.velocity.y * Units.metersToFeet * 60;
+        float climbRate = plane.Rigidbody.linearVelocity.y * Units.metersToFeet * 60;
         builder.AppendLine(string.Format("Climb rate: {0} fpm", (int)Mathf.Round(climbRate)));
         builder.AppendLine(string.Format("Heading: {0:N0}", internalHeading));
 
@@ -312,7 +312,7 @@ public class AutopilotController : MonoBehaviour {
 
     float CalculatePitchClimbRate(float dt, float targetClimbRate) {
         // convert m/s to ft/min
-        var verticalSpeedFt = plane.Rigidbody.velocity.y * Units.metersToFeet * 60;
+        var verticalSpeedFt = plane.Rigidbody.linearVelocity.y * Units.metersToFeet * 60;
         var verticalAccelFt = plane.GForce.y * Units.metersToFeet * 60;
         var pitch = plane.PitchYawRoll.x;
         var pitchRate = GetPitchRate(plane);
@@ -490,7 +490,7 @@ public class AutopilotController : MonoBehaviour {
         if (navigateMode.pitchControlMode == NavigateModeState.PitchControlMode.AltitudeHoldMode) {
             // convert m to ft, m/s to ft/min
             var altitudeFt = plane.Rigidbody.position.y * Units.metersToFeet;
-            var verticalSpeedFt = plane.Rigidbody.velocity.y * Units.metersToFeet * 60;
+            var verticalSpeedFt = plane.Rigidbody.linearVelocity.y * Units.metersToFeet * 60;
 
             climbRate = altitudeHoldController.Update(dt, altitudeFt, navigateMode.targetAltitudeFt, verticalSpeedFt);
             internalTargetClimbRate = climbRate;
@@ -708,7 +708,7 @@ public class AutopilotController : MonoBehaviour {
 
     void UpdateLandingData(float dt) {
         var planePosition = plane.Rigidbody.position;
-        var planeVelocityDirection = plane.Rigidbody.velocity.normalized;
+        var planeVelocityDirection = plane.Rigidbody.linearVelocity.normalized;
 
         var planePosition2D = planePosition;
         planePosition2D.y = 0;

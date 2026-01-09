@@ -129,7 +129,7 @@ public class AIController : MonoBehaviour {
         var targetPosition = plane.Target.Position;
 
         if (Vector3.Distance(targetPosition, plane.Rigidbody.position) < cannonRange) {
-            return Utilities.FirstOrderIntercept(plane.Rigidbody.position, plane.Rigidbody.velocity, bulletSpeed, targetPosition, plane.Target.Velocity);
+            return Utilities.FirstOrderIntercept(plane.Rigidbody.position, plane.Rigidbody.linearVelocity, bulletSpeed, targetPosition, plane.Target.Velocity);
         }
 
         return targetPosition;
@@ -273,7 +273,7 @@ public class AIController : MonoBehaviour {
         } else {
             cannonCooldownTimer = Mathf.Max(0, cannonCooldownTimer - dt);
 
-            var targetPosition = Utilities.FirstOrderIntercept(plane.Rigidbody.position, plane.Rigidbody.velocity, bulletSpeed, plane.Target.Position, plane.Target.Velocity);
+            var targetPosition = Utilities.FirstOrderIntercept(plane.Rigidbody.position, plane.Rigidbody.linearVelocity, bulletSpeed, plane.Target.Position, plane.Target.Velocity);
 
             var error = targetPosition - plane.Rigidbody.position;
             var range = error.magnitude;
@@ -327,7 +327,7 @@ public class AIController : MonoBehaviour {
         bool emergency = false;
         Vector3 targetPosition = plane.Target.Position;
 
-        var velocityRot = Quaternion.LookRotation(plane.Rigidbody.velocity.normalized);
+        var velocityRot = Quaternion.LookRotation(plane.Rigidbody.linearVelocity.normalized);
         var ray = new Ray(plane.Rigidbody.position, velocityRot * Quaternion.Euler(groundAvoidanceAngle, 0, 0) * Vector3.forward);
 
         if (Physics.Raycast(ray, groundCollisionDistance + plane.LocalVelocity.z, groundCollisionMask.value)) {

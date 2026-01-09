@@ -21,7 +21,7 @@ public class Target : MonoBehaviour {
 
     public Vector3 Velocity {
         get {
-            return rigidbody.velocity;
+            return rigidbody.linearVelocity;
         }
     }
 

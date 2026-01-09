@@ -25,7 +25,7 @@ public class Bullet : MonoBehaviour {
         startTime = Time.time;
 
         rigidbody.AddRelativeForce(new Vector3(0, 0, speed), ForceMode.VelocityChange);
-        rigidbody.AddForce(owner.Rigidbody.velocity, ForceMode.VelocityChange);
+        rigidbody.AddForce(owner.Rigidbody.linearVelocity, ForceMode.VelocityChange);
         lastPosition = rigidbody.position;
     }
 
